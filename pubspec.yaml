@@ -1,0 +1,10 @@
+author: "Jimmy Forrester-Fellowes <jimmyff@jimmyff.uk>"
+description: "Dart JS wrappers for Stripe.js V3 3.0"
+environment:
+  sdk: ">=1.19.0"
+homepage: "https://github.com/jimmyff/stripe_js_facade.git"
+name: "stripe_js_facade"
+version: "0.9.0"
+dependencies:
+  func: "^0.1.0"
+  js: "^0.6.1"
