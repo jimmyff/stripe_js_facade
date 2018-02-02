@@ -6,6 +6,7 @@
 .project
 .pub/
 build/
+types/
 **/packages/
 
 # Files created by dart2js

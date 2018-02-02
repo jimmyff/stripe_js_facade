@@ -1,7 +1,26 @@
 @JS()
 library stripe_js_facade;
 
+import 'package:func/func.dart';
 import "package:js/js.dart";
+
+
+@JS('Promise')
+class Promise<T> extends Thenable<T> {
+  external Promise(VoidFunc2<VoidFunc1, VoidFunc1> resolver);
+  external static Promise<List> all(List<Promise> values);
+  external static Promise reject(dynamic error);
+  external static Promise resolve(dynamic value);
+}
+
+@JS('Thenable')
+abstract class Thenable<T> {
+  // ignore: non_constant_identifier_names
+  external Thenable JS$catch([VoidFunc1 reject]);
+  external Thenable then([VoidFunc1 resolve, VoidFunc1 reject]);
+}
+
+
 
 /// Type definitions for stripe-v3 3.0
 /// Project: https://stripe.com/
@@ -114,7 +133,7 @@ abstract class SourceOptions {
             address?: {
                 city?: string;
                 country?: string;
-                line1?: string;
+                line1?: string;b
                 line2?: string;
                 postal_code?: string;
                 state?: string;
@@ -579,6 +598,7 @@ abstract class ElementsOptions {
       v);
   external dynamic /*String|JSMap of <String,String>*/ get value;
   external set value(dynamic /*String|JSMap of <String,String>*/ v);
+
   external factory ElementsOptions(
       {dynamic /*{
                 base?: string;
@@ -605,23 +625,8 @@ abstract class ElementsOptions {
 @anonymous
 @JS()
 abstract class Style implements StyleOptions {
-  external StyleOptions get String /*":hover"*/;
-  external set String /*":hover"*/ (StyleOptions v);
-  external StyleOptions get String /*":focus"*/;
-  external set String /*":focus"*/ (StyleOptions v);
-  external StyleOptions get String /*"::placeholder"*/;
-  external set String /*"::placeholder"*/ (StyleOptions v);
-  external StyleOptions get String /*"::selection"*/;
-  external set String /*"::selection"*/ (StyleOptions v);
-  external StyleOptions get String /*":-webkit-autofill"*/;
-  external set String /*":-webkit-autofill"*/ (StyleOptions v);
   external factory Style(
-      {StyleOptions String /*":hover"*/,
-      StyleOptions String /*":focus"*/,
-      StyleOptions String /*"::placeholder"*/,
-      StyleOptions String /*"::selection"*/,
-      StyleOptions String /*":-webkit-autofill"*/,
-      String color,
+      {String color,
       String fontFamily,
       String fontSize,
       String fontSmoothing,

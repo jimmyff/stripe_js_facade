@@ -16,8 +16,9 @@ Create simple card element:
 ```dart
 import 'package:stripe_js_facade/stripe_js_facade.dart';
 ...
-final stripe = Stripe(yourStripePublicKey);
+final stripe = Stripe.call(yourStripePublicKey);
 final elements = stripe.elements();
 final card = elements.create('card', new ElementsOptions());
-card.mount('#card-element');
+card.mount('#'
+'card-element');
 ```
